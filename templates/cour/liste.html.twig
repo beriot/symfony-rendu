@@ -1,0 +1,35 @@
+<table border="1">
+    <thead>
+    <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Création</th>
+        <th>Catégorie</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for cour in cours %}
+        <tr>
+            <td>
+                <a href="{{ path('show_cour', {'slug': cour.slug}) }}">
+                    {{cour.titre}}
+                </a>
+            </td>
+            <td>{{cour.description}}</td>
+            <td>{{cour.creation|date('d/m/Y')}}</td>
+            <td>{{cour.categorie.nom}}
+                {% if is_granted('ROLE_USER') %}
+            <td>
+                <a href="{{ path('delete_cour', {'id':cour.id}) }}">
+                    Supprimer
+                </a>
+            </td>
+            {% endif %}
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="5">Il n'y a aucun cour</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

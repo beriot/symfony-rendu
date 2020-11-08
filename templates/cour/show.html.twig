@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{cour.titre}}</h1>
+    <p>{{cour.description}}</p>
+    <p>{{cour.creation|date('d/m/Y')}}</p>
+    <p>{{cour.categorie}}</p>
+
+
+    {% if is_granted('ROLE_USER') %}
+        <h2>Modifier le cour</h2>
+        {{form(maj)}}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CourController!{% endblock %}
+
+{% block body %}
+    <h1>Cours</h1>
+
+    {% include 'cour/liste.html.twig' with {'cours':cours} %}
+
+
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+.primary{
+    background-color: #73A5AC;
+    height: 56px;
+    vertical-align:middle;
+}
+
+
+html {
+    height: 100%;
+  }
+body {
+    min-height: 100%;
+    margin: 0;
+    padding-left: 0;
+  }
+
+td {
+
+    justify-content: center;
+}
+
+body {position: relative;}
+
+

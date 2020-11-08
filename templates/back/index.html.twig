@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BackController!{% endblock %}
+
+{% block body %}
+
+    {% if is_granted('ROLE_USER') %}
+    <h2>Ajouter une catégorie</h2>
+    {{form(ajout)}}
+
+
+    <h2>Ajouter un cour</h2>
+    {{form(ajoutcour)}}
+
+    {% endif %}
+
+    <h1 >Statistiques</h1>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Catégories</th>
+            <th>Cours</th>
+            <th>Utilisateurs</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>{{ statcategories }}</td>
+                <td>{{ statcours }}</td>
+                <td>{{ users }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

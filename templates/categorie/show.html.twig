@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{categorie.nom}}</h1>
+
+    {% if is_granted('ROLE_USER') %}
+    <h2>Modifier la catégorie</h2>
+    {{form(maj)}}
+    {% endif %}
+
+    <h2>Cours</h2>
+
+    <h3>Liste des cours</h3>
+    {% include 'cour/liste.html.twig' with {'cours': categorie.cours} %}
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <h1>Catégories</h1>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Cours</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>
+                    <a href="{{ path('show_categorie', {'slug': categorie.slug}) }}">
+                        {{categorie.nom}}
+                    </a>
+                </td>
+                <td>{{ categorie.cours|length }}</td>
+                {% if is_granted('ROLE_USER') %}
+                <td>
+                    <a href="{{ path('delete_categorie', {'id':categorie.id}) }}">
+                        Supprimer
+                    </a>
+                </td>
+                {% endif %}
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">Il n'y a pas de catégories</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
